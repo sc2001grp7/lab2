@@ -1,16 +1,14 @@
 import heapq
-def Dijkstra_ShortestPath(graph, source):
-  d = {}
-  pi = {}
-  S = {}
-  Q = {}
+from typing import Dict
+def Dijkstra_ShortestPath(graph: Dict[int, Dict[int, int]], source: int):
+  d = [float('infinity')] * len(graph)
+  pi = [None] * len(graph)
+  S = [0] * len(graph)
+  Q = []
   vertices = set(graph.keys())
   for vertex in graph:
     vertices.update(graph[vertex].keys())
   for vertex in vertices:
-    d[vertex] = float('infinity')
-    pi[vertex] = None
-    S[vertex] = 0
     heapq.heappush(Q, (d[vertex], vertex))
 
   d[source] = 0
