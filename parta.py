@@ -19,7 +19,7 @@ def dijkstra(graph: List[List[int]], source: int):
         q_size -= 1
         s[u] = True
         for v, weight in enumerate(graph[u]):
-            if s[v] == False and d[v] > d[u] + weight:
+            if s[v] is False and d[v] > d[u] + weight:
                 d[v] = d[u] + weight
                 pi[v] = u
                 q[v] = d[v]
